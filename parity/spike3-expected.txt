@@ -1,0 +1,19 @@
+# Differences expected between the clean baseline and the de-Liquefied build (plan §10, spike 3).
+# Every entry is D-001: the posts that used {% highlight %}, and the files embedding their body.
+# `just check-d001 BEFORE AFTER` checks that each differs by D-001 only.
+
+# The two posts' converted bodies and excerpts (their excerpt is the whole body).
+dump/content/_posts/2020/2020-01-26-multirange.md.html
+dump/content/_posts/2021/2021-08-17-speed-up-ggplot.md.html
+dump/excerpt/_posts/2020/2020-01-26-multirange.md.html
+dump/excerpt/_posts/2021/2021-08-17-speed-up-ggplot.md.html
+
+# The two posts' pages.
+site/blog/2020/01/26/multirange.html
+site/blog/2021/08/17/speed-up-ggplot.html
+
+# Tag feeds carry each entry's full content: speed-up-ggplot is tagged R and plot, and
+# multirange python. No other feed lists either post among its 10 entries.
+site/blog/tag/R.xml
+site/blog/tag/plot.xml
+site/blog/tag/python.xml

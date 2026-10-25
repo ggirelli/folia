@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-10-25T09:35:50Z",
+  "site": {
+    "path": "../filopoe",
+    "commit": "542c9a96c4d3109e8ba1e66bdcc69fea83a8f269",
+    "dirty": false,
+    "status": [
+
+    ],
+    "submodules": [
+
+    ],
+    "submodules_declared": [
+      "_digital_garden/first_setup"
+    ],
+    "gemfile_lock_sha256": "f3786eca74f43f459f7d749d83a8a9dff21ae71b9d0290dd4b0c8270ab5d659c"
+  },
+  "folia": {
+    "commit": "236cf59b1c095f4c31dd16e1c7a0de3f9bd6c10e",
+    "plugin_sha256": "f6ebc4cf25cd844776c5a7c26bcdb5548dc8e293141aff37e67eb2de1ea3f4ff"
+  },
+  "tools": {
+    "ruby": "ruby 3.3.8 (2025-04-09 revision b200bad6cd) [x86_64-linux-gnu]",
+    "bundler": "4.0.14",
+    "jekyll": "jekyll 4.4.1",
+    "git": "git version 2.53.0"
+  },
+  "build": {
+    "jekyll_env": "production",
+    "dump": true,
+    "tz": null,
+    "lang": "en_US.UTF-8"
+  }
+}

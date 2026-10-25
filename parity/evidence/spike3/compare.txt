@@ -1,0 +1,14 @@
+scripts/compare-builds.sh ../folia-baselines/e872c37 ../folia-baselines/deliquified parity/spike3-expected.txt
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+Expected differences (9):
+  changed dump/content/_posts/2020/2020-01-26-multirange.md.html
+  changed dump/content/_posts/2021/2021-08-17-speed-up-ggplot.md.html
+  changed dump/excerpt/_posts/2020/2020-01-26-multirange.md.html
+  changed dump/excerpt/_posts/2021/2021-08-17-speed-up-ggplot.md.html
+  changed site/blog/2020/01/26/multirange.html
+  changed site/blog/2021/08/17/speed-up-ggplot.html
+  changed site/blog/tag/R.xml
+  changed site/blog/tag/plot.xml
+  changed site/blog/tag/python.xml
+No unexpected differences.

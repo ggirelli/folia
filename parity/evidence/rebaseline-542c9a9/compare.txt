@@ -1,0 +1,37 @@
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+Unexpected differences (34):
+  changed dump/meta/_digital_garden/index.md.json
+  changed dump/meta/_posts/2014/2014-05-23-vaccini-omeopatia.md.json
+  changed dump/meta/_posts/2015/2015-12-13-tissue-head.md.json
+  changed dump/meta/_posts/2017/2017-01-13-brush-markers.md.json
+  changed dump/meta/_posts/2017/2017-02-21-eyes-palettes.md.json
+  changed dump/meta/_posts/2018/2018-09-09-tao-dance-theater.md.json
+  changed dump/meta/_posts/2018/2018-11-01-inktober.md.json
+  changed dump/meta/_posts/2019/2019-11-01-inktober.md.json
+  changed dump/meta/_posts/2020/2020-01-26-multirange.md.json
+  changed dump/meta/_posts/2020/2020-11-01-inktober.md.json
+  changed dump/meta/_posts/2021/2021-09-25-isola-del-garda.md.json
+  changed dump/meta/_posts/2022/2022-09-03-command-palette.md.json
+  changed dump/meta/_posts/2023/2023-05-15-May-train-trip-pt3.md.json
+  changed site/blog/2014/05/23/vaccini-omeopatia.html
+  changed site/blog/2015/12/13/tissue-head.html
+  changed site/blog/2017/01/13/brush-markers.html
+  changed site/blog/2017/02/21/eyes-palettes.html
+  changed site/blog/2018/09/09/tao-dance-theater.html
+  changed site/blog/2018/11/01/inktober.html
+  changed site/blog/2019/11/01/inktober.html
+  changed site/blog/2020/01/26/multirange.html
+  changed site/blog/2020/11/01/inktober.html
+  changed site/blog/2021/09/25/isola-del-garda.html
+  changed site/blog/2022/09/03/command-palette.html
+  changed site/blog/2023/05/15/May-train-trip-pt3.html
+  changed site/blog/tag/Germany.xml
+  changed site/blog/tag/dance.xml
+  changed site/blog/tag/inktober.xml
+  changed site/blog/tag/interactive.xml
+  changed site/blog/tag/javascript.xml
+  changed site/blog/tag/python.xml
+  changed site/blog/tag/theater.xml
+  changed site/dg/index.html
+  changed site/sitemap.xml

@@ -1,0 +1,7 @@
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+Reordered, entries equal (order is not significant) (2):
+  reordered dump/content/assets/js/lunrsearchengine.js.html
+  reordered site/assets/js/lunrsearchengine.js
+Unexpected differences (1):
+  changed site/sitemap.xml

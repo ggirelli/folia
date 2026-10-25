@@ -1,0 +1,1469 @@
+diff --git a/_digital_garden/index.md b/_digital_garden/index.md
+index dea8afc..fea2152 100644
+--- a/_digital_garden/index.md
++++ b/_digital_garden/index.md
+@@ -52,7 +52,29 @@ If you need a soundtrack while trailing the paths, check out
+ 
+ If you get lost, click on the map icon (typically in the right-sidebar, where
+ the "**notes mentioning this note**" section is located) to show the map of the
+-garden: {% include digital-garden/notes_graph.html %}
++garden: <a id="garden-map-toggle"
++  class="internal-link text-decoration-none "
++  data-bs-toggle="collapse"
++  aria-expanded="false"
++  href="#garden-map">
++  <i data-bs-toggle="tooltip"
++    data-bs-placement="left"
++    data-bs-animation="false"
++    data-bs-html="true"
++    data-bs-title="Toggle the garden map">🗺️</i>
++</a>
++<div class="collapse" id="garden-map">
++  <p class="text-white-50 mb-3 fs-0p8em">
++    Here are all the notes in this garden visualized as a graph.
++    Scroll on the map to zoom in and out.
++    Hover on a node to see its neighborhood.
++    Click on a node to jump to that page.
++  </p>
++  <div id="graph-wrapper" class="border"></div>
++</div>
++
++<script defer src="/assets/js/draw-garden-map.js"></script>
++
+ 
+ [`digital-garden-jekyll-template`]: https://github.com/maximevaillancourt/digital-garden-jekyll-template
+ [welcome to the jungle]: /blog/2023/01/31/welcome-to-the-jungle
+diff --git a/_posts/2014/2014-05-23-vaccini-omeopatia.md b/_posts/2014/2014-05-23-vaccini-omeopatia.md
+index fc87b2a..aa57b59 100644
+--- a/_posts/2014/2014-05-23-vaccini-omeopatia.md
++++ b/_posts/2014/2014-05-23-vaccini-omeopatia.md
+@@ -46,35 +46,35 @@ gratuitamente, e che ringrazio vivamente. (foto by Jason Fontana)
+     <div class="carousel-item active">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-flashmob-1.webp"
++              src="/assets/images/20140523-flashmob-1.webp"
+               alt="First slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-flashmob-2.webp"
++              src="/assets/images/20140523-flashmob-2.webp"
+               alt="Second slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-flashmob-3.webp"
++              src="/assets/images/20140523-flashmob-3.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-flashmob-4.webp"
++              src="/assets/images/20140523-flashmob-4.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-flashmob-5.webp"
++              src="/assets/images/20140523-flashmob-5.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+@@ -125,7 +125,7 @@ quanto lo è stato per me.
+ 
+ <!-- markdownlint-disable MD033 -->
+ <figure class="figure">
+-  <img src="{{ site.baseurl }}/assets/images/20140523-iuxs-team.png" />
++  <img src="/assets/images/20140523-iuxs-team.png" />
+   <figcaption class="figure-caption">
+     Gli organizzatori dell'edizione trentina.
+   </figcaption>
+@@ -173,42 +173,42 @@ il momento che in generale ‘mi riesce meglio’: quello dell’<u>auto-critica
+     <div class="carousel-item active">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-1.webp"
++              src="/assets/images/20140523-conference-1.webp"
+               alt="First slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-2.webp"
++              src="/assets/images/20140523-conference-2.webp"
+               alt="Second slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-3.webp"
++              src="/assets/images/20140523-conference-3.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-4.webp"
++              src="/assets/images/20140523-conference-4.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-5.webp"
++              src="/assets/images/20140523-conference-5.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+     <div class="carousel-item">
+         <figure class="container figure text-center">
+             <img class="d-block img-fluid"
+-              src="{{ site.baseurl }}/assets/images/20140523-conference-6.webp"
++              src="/assets/images/20140523-conference-6.webp"
+               alt="Third slide" />
+         </figure>
+     </div>
+@@ -230,7 +230,7 @@ il momento che in generale ‘mi riesce meglio’: quello dell’<u>auto-critica
+ <script defer id="set-mainheading-max-width" src="/assets/js/set-mainheading-max-width.js" data-max-width="800px"></script>
+ <!-- markdownlint-enable MD033 -->
+ 
+-[come avevo accennato]: {{ site.paths.home }}2014/05/12/bufala-servita-trento.html
++[come avevo accennato]: /blog/2014/05/12/bufala-servita-trento.html
+ [Italia Unita per la Scienza]: https://italiaxlascienza.it/main/
+ [MUSE]: https://muse.it
+ [Open Wet Lab]: https://openwetlab.it
+diff --git a/_posts/2015/2015-12-13-tissue-head.md b/_posts/2015/2015-12-13-tissue-head.md
+index 5297856..a389ad4 100644
+--- a/_posts/2015/2015-12-13-tissue-head.md
++++ b/_posts/2015/2015-12-13-tissue-head.md
+@@ -9,8 +9,8 @@ lang: [english]
+ ---
+ 
+ <!-- markdownlint-disable MD033 -->
+-<a href="{{site.baseurl}}/assets/images/hotlink-ok/sketches-tissue-head.webp" target="_blank">
+-    <img class="img-fluid" src="{{site.baseurl}}/assets/images/hotlink-ok/sketches-tissue-head.webp" />
++<a href="/assets/images/hotlink-ok/sketches-tissue-head.webp" target="_blank">
++    <img class="img-fluid" src="/assets/images/hotlink-ok/sketches-tissue-head.webp" />
+ </a>
+ <!-- markdownlint-enable MD033 -->
+ 
+diff --git a/_posts/2017/2017-01-13-brush-markers.md b/_posts/2017/2017-01-13-brush-markers.md
+index 5d77ff9..7053db2 100644
+--- a/_posts/2017/2017-01-13-brush-markers.md
++++ b/_posts/2017/2017-01-13-brush-markers.md
+@@ -17,42 +17,42 @@ I love them! I tried to portray a couple of actors I like and some poses from qu
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox">
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/brush-markers/1.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/brush-markers/1.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/brush-markers/1.webp"|prepend:site.baseurl }}"
++          src="/assets/images/hotlink-ok/brush-markers/1.webp"
+           alt="brush-markers-1">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/brush-markers/2.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/brush-markers/2.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/brush-markers/2.webp"|prepend:site.baseurl }}"
++          src="/assets/images/hotlink-ok/brush-markers/2.webp"
+           alt="brush-markers-2">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/brush-markers/3.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/brush-markers/3.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/brush-markers/3.webp"|prepend:site.baseurl }}"
++          src="/assets/images/hotlink-ok/brush-markers/3.webp"
+           alt="brush-markers-3">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/brush-markers/4.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/brush-markers/4.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/brush-markers/4.webp"|prepend:site.baseurl }}"
++          src="/assets/images/hotlink-ok/brush-markers/4.webp"
+           alt="brush-markers-4">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/brush-markers/5.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/brush-markers/5.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/brush-markers/5.webp"|prepend:site.baseurl }}"
++          src="/assets/images/hotlink-ok/brush-markers/5.webp"
+           alt="brush-markers-5">
+       </a>
+     </figure>
+diff --git a/_posts/2017/2017-02-21-eyes-palettes.md b/_posts/2017/2017-02-21-eyes-palettes.md
+index 981ca63..3e5ffe0 100644
+--- a/_posts/2017/2017-02-21-eyes-palettes.md
++++ b/_posts/2017/2017-02-21-eyes-palettes.md
+@@ -17,50 +17,50 @@ marker colors are on this new art book :)
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox">
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/1.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/1.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/1.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/1.webp"
+           alt="eyes-palettes-1">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/2.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/2.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/2.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/2.webp"
+           alt="eyes-palettes-2">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/3.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/3.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/3.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/3.webp"
+           alt="eyes-palettes-3">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/4.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/4.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/4.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/4.webp"
+           alt="eyes-palettes-4">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/5.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/5.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/5.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/5.webp"
+           alt="eyes-palettes-5">
+       </a>
+     </figure>
+     <figure class="col col-4 figure">
+-      <a href="{{"/assets/images/hotlink-ok/eyes-palettes/6.webp"|prepend:site.baseurl}}"
++      <a href="/assets/images/hotlink-ok/eyes-palettes/6.webp"
+         target="_blank">
+         <img class="figure-img img-fluid rounded"
+-          src="{{"/assets/images/hotlink-ok/eyes-palettes/6.webp"|prepend:site.baseurl}}"
++          src="/assets/images/hotlink-ok/eyes-palettes/6.webp"
+           alt="eyes-palettes-6">
+       </a>
+     </figure>
+diff --git a/_posts/2018/2018-09-09-tao-dance-theater.md b/_posts/2018/2018-09-09-tao-dance-theater.md
+index 63c55a9..d6121ca 100644
+--- a/_posts/2018/2018-09-09-tao-dance-theater.md
++++ b/_posts/2018/2018-09-09-tao-dance-theater.md
+@@ -64,8 +64,8 @@ on [my instagram page]{: target="blank"}.
+ <script defer id="set-mainheading-max-width" src="/assets/js/set-mainheading-max-width.js" data-max-width="900px"></script>
+ <!-- markdownlint-enable MD033 -->
+ 
+-[taodancetheater-sketch-2]: {{ "/assets/images/hotlink-ok/taodancetheater-sketch-2.webp" | prepend: site.baseurl }}
+-[taodancetheater-sketch-1]: {{ "/assets/images/hotlink-ok/taodancetheater-sketch-1.webp" | prepend: site.baseurl }}
++[taodancetheater-sketch-2]: /assets/images/hotlink-ok/taodancetheater-sketch-2.webp
++[taodancetheater-sketch-1]: /assets/images/hotlink-ok/taodancetheater-sketch-1.webp
+ [Tao Dance Theater]: https://www.facebook.com/TAO.Dance.Theater/
+ [Dansens Hus]: https://dansenshus.se
+ [clips]: https://www.youtube.com/watch?v=EHsScfmIyHQ
+diff --git a/_posts/2018/2018-11-01-inktober.md b/_posts/2018/2018-11-01-inktober.md
+index c382a58..5a2e88c 100644
+--- a/_posts/2018/2018-11-01-inktober.md
++++ b/_posts/2018/2018-11-01-inktober.md
+@@ -14,109 +14,91 @@ seguendo le tematiche ufficiali (_prompts_).
+ Quest'anno sono riuscito a seguire un po' di più l'obiettivo, usando diverse tecniche,
+ dall'acquerello, ai pennarelli ad alcool, alle penne a pennello.
+ 
+-{% assign day1 = '/assets/images/hotlink-ok/inktober-2018/day1.webp' | prepend: site.baseurl %}
+-{% assign day3A = '/assets/images/hotlink-ok/inktober-2018/day3A.webp' | prepend: site.baseurl %}
+-{% assign day3B = '/assets/images/hotlink-ok/inktober-2018/day3B.webp' | prepend: site.baseurl %}
+-{% assign day4 = '/assets/images/hotlink-ok/inktober-2018/day4.webp' | prepend: site.baseurl %}
+-{% assign day5 = '/assets/images/hotlink-ok/inktober-2018/day5.webp' | prepend: site.baseurl %}
+-{% assign day6 = '/assets/images/hotlink-ok/inktober-2018/day6.webp' | prepend: site.baseurl %}
+-{% assign day8 = '/assets/images/hotlink-ok/inktober-2018/day8.webp' | prepend: site.baseurl %}
+-{% assign day10 = '/assets/images/hotlink-ok/inktober-2018/day10.webp' | prepend: site.baseurl %}
+-{% assign day13 = '/assets/images/hotlink-ok/inktober-2018/day13.webp' | prepend: site.baseurl %}
+-{% assign day18 = '/assets/images/hotlink-ok/inktober-2018/day18.webp' | prepend: site.baseurl %}
+-{% assign day19 = '/assets/images/hotlink-ok/inktober-2018/day19.webp' | prepend: site.baseurl %}
+-{% assign day21 = '/assets/images/hotlink-ok/inktober-2018/day21.webp' | prepend: site.baseurl %}
+-{% assign day24 = '/assets/images/hotlink-ok/inktober-2018/day24.webp' | prepend: site.baseurl %}
+-{% assign day25 = '/assets/images/hotlink-ok/inktober-2018/day25.webp' | prepend: site.baseurl %}
+-{% assign day26 = '/assets/images/hotlink-ok/inktober-2018/day26.webp' | prepend: site.baseurl %}
+-{% assign day29 = '/assets/images/hotlink-ok/inktober-2018/day29.webp' | prepend: site.baseurl %}
+-{% assign day31 = '/assets/images/hotlink-ok/inktober-2018/day31.webp' | prepend: site.baseurl %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day1}}" target="_blank"><img src="{{day1}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day1.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day1.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day3A}}" target="_blank"><img src="{{day3A}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day3A.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day3A.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day3B}}" target="_blank"><img src="{{day3B}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day3B.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day3B.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day4}}" target="_blank"><img src="{{day4}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day4.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day4.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day5}}" target="_blank"><img src="{{day5}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day5.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day5.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day6}}" target="_blank"><img src="{{day6}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day6.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day6.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day8}}" target="_blank"><img src="{{day8}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day8.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day8.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day10}}" target="_blank"><img src="{{day10}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day10.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day10.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day13}}" target="_blank"><img src="{{day13}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day13.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day13.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day18}}" target="_blank"><img src="{{day18}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day18.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day18.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day19}}" target="_blank"><img src="{{day19}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day19.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day19.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day21}}" target="_blank"><img src="{{day21}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day21.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day21.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day24}}" target="_blank"><img src="{{day24}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day24.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day24.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day25}}" target="_blank"><img src="{{day25}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day25.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day25.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day26}}" target="_blank"><img src="{{day26}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day26.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day26.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day29}}" target="_blank"><img src="{{day29}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day29.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day29.webp" /></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day31}}" target="_blank"><img src="{{day31}}" /></a>
++        <a href="/assets/images/hotlink-ok/inktober-2018/day31.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2018/day31.webp" /></a>
+       </figure>
+     </div>
+ </div>
+diff --git a/_posts/2019/2019-11-01-inktober.md b/_posts/2019/2019-11-01-inktober.md
+index 5e32a2f..02d9721 100644
+--- a/_posts/2019/2019-11-01-inktober.md
++++ b/_posts/2019/2019-11-01-inktober.md
+@@ -12,127 +12,106 @@ Alcuni dei disegni dell'Inktober 2019. **Obiettivo**: disegnare una volta al gio
+ 
+ Anche quest'anno, tra alti e bassi, sono riuscito a seguire un po' di più l'obiettivo, usando diverse tecniche, dall'acquerello, ai pennarelli ad alcool, alle penne a pennello. Sono abbastanza soddisfatto dei risultati di quest'anno!
+ 
+-{% assign day1 = '/assets/images/hotlink-ok/inktober-2019/day1.webp' | prepend: site.baseurl %}
+-{% assign day2 = '/assets/images/hotlink-ok/inktober-2019/day2.webp' | prepend: site.baseurl %}
+-{% assign day3 = '/assets/images/hotlink-ok/inktober-2019/day3.webp' | prepend: site.baseurl %}
+-{% assign day6 = '/assets/images/hotlink-ok/inktober-2019/day6.webp' | prepend: site.baseurl %}
+-{% assign day12 = '/assets/images/hotlink-ok/inktober-2019/day12.webp' | prepend: site.baseurl %}
+-{% assign day13 = '/assets/images/hotlink-ok/inktober-2019/day13.webp' | prepend: site.baseurl %}
+-{% assign day22 = '/assets/images/hotlink-ok/inktober-2019/day22.webp' | prepend: site.baseurl %}
+-{% assign day23 = '/assets/images/hotlink-ok/inktober-2019/day23.webp' | prepend: site.baseurl %}
+-{% assign day24 = '/assets/images/hotlink-ok/inktober-2019/day24.webp' | prepend: site.baseurl %}
+-{% assign day17 = '/assets/images/hotlink-ok/inktober-2019/day17.webp' | prepend: site.baseurl %}
+-{% assign day14 = '/assets/images/hotlink-ok/inktober-2019/day14.webp' | prepend: site.baseurl %}
+-{% assign day29 = '/assets/images/hotlink-ok/inktober-2019/day29.webp' | prepend: site.baseurl %}
+-{% assign day31 = '/assets/images/hotlink-ok/inktober-2019/day31.webp' | prepend: site.baseurl %}
+-{% assign day19 = '/assets/images/hotlink-ok/inktober-2019/day19.webp' | prepend: site.baseurl %}
+-{% assign day21 = '/assets/images/hotlink-ok/inktober-2019/day21.webp' | prepend: site.baseurl %}
+-{% assign day25 = '/assets/images/hotlink-ok/inktober-2019/day25.webp' | prepend: site.baseurl %}
+-{% assign day8 = '/assets/images/hotlink-ok/inktober-2019/day8.webp' | prepend: site.baseurl %}
+-{% assign day10 = '/assets/images/hotlink-ok/inktober-2019/day10.webp' | prepend: site.baseurl %}
+-{% assign day15 = '/assets/images/hotlink-ok/inktober-2019/day15.webp' | prepend: site.baseurl %}
+-{% assign day16 = '/assets/images/hotlink-ok/inktober-2019/day16.webp' | prepend: site.baseurl %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day1}}" target="_blank"><img src="{{day1}}" alt="day1"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day1.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day1.webp" alt="day1"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day2}}" target="_blank"><img src="{{day2}}" alt="day2"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day2.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day2.webp" alt="day2"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day3}}" target="_blank"><img src="{{day3}}" alt="day3"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day3.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day3.webp" alt="day3"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day6}}" target="_blank"><img src="{{day6}}" alt="day6"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day6.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day6.webp" alt="day6"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day12}}" target="_blank"><img src="{{day12}}" alt="day12"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day12.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day12.webp" alt="day12"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day13}}" target="_blank"><img src="{{day13}}" alt="day13"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day13.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day13.webp" alt="day13"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day22}}" target="_blank"><img src="{{day22}}" alt="day22"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day22.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day22.webp" alt="day22"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day23}}" target="_blank"><img src="{{day23}}" alt="day23"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day23.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day23.webp" alt="day23"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day24}}" target="_blank"><img src="{{day24}}" alt="day24"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day24.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day24.webp" alt="day24"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day17}}" target="_blank"><img src="{{day17}}" alt="day17"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day17.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day17.webp" alt="day17"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day14}}" target="_blank"><img src="{{day14}}" alt="day14"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day14.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day14.webp" alt="day14"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day29}}" target="_blank"><img src="{{day29}}" alt="day29"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day29.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day29.webp" alt="day29"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day31}}" target="_blank"><img src="{{day31}}" alt="day31"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day31.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day31.webp" alt="day31"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day19}}" target="_blank"><img src="{{day19}}" alt="day19"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day19.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day19.webp" alt="day19"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day21}}" target="_blank"><img src="{{day21}}" alt="day21"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day21.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day21.webp" alt="day21"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day25}}" target="_blank"><img src="{{day25}}" alt="day25"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day25.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day25.webp" alt="day25"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day8}}" target="_blank"><img src="{{day8}}" alt="day8"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day8.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day8.webp" alt="day8"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day10}}" target="_blank"><img src="{{day10}}" alt="day10"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day10.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day10.webp" alt="day10"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day15}}" target="_blank"><img src="{{day15}}" alt="day15"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day15.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day15.webp" alt="day15"></a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{day16}}" target="_blank"><img src="{{day16}}" alt="day16"></a>
++        <a href="/assets/images/hotlink-ok/inktober-2019/day16.webp" target="_blank"><img src="/assets/images/hotlink-ok/inktober-2019/day16.webp" alt="day16"></a>
+       </figure>
+     </div>
+ </div>
+diff --git a/_posts/2020/2020-01-26-multirange.md b/_posts/2020/2020-01-26-multirange.md
+index 285f87a..0422357 100644
+--- a/_posts/2020/2020-01-26-multirange.md
++++ b/_posts/2020/2020-01-26-multirange.md
+@@ -39,7 +39,7 @@ an actual series of numbers. The desired behavior would be to convert `1,3-6` in
+ To do this, I implemented a Python3.6+ class, `MultiRange`, that I then published as a
+ Gist on GitHub (see below). I will break it down and explain it bit by bit below.
+ 
+-{% highlight python %}
++```python
+ '''
+ @author: Gabriele Girelli
+ '''
+@@ -127,15 +127,14 @@ class MultiRange(object):
+ 
+     def __len__(self) -> Optional[int]:
+         return self.length
+-
+-{% endhighlight %}
++```
+ 
+ ### Dependencies
+ 
+-{% highlight python %}
++```python
+ import re
+ from typing import Iterator, List, Optional, Pattern, Tuple
+-{% endhighlight %}
++```
+ 
+ The class has only two dependencies from the Python standard libraries:
+ 
+@@ -145,14 +144,14 @@ The class has only two dependencies from the Python standard libraries:
+ 
+ ### The class attributes
+ 
+-{% highlight python %}
++```python
+ **current_item: Tuple[int] = (0, 0)
+ **string_range: Optional[str] = None
+ **extremes_list: Optional[List[Tuple[int]]] = None
+ **reg: Pattern = re.compile(r'^[0-9-, ]+$')
+ **length: Optional[int] = None
+ **ready: bool = False
+-{% endhighlight %}
++```
+ 
+ - The `__string_range` attribute will contain the printer-styled range string that we
+   want to convert into a list of numbers. For example: `1,3-6`.
+@@ -170,7 +169,7 @@ class through name mangling.
+ 
+ ### The `__init__` method
+ 
+-{% highlight python %}
++```python
+ def **init**(self, s: str):
+ super(MultiRange, self).**init**()
+ 
+@@ -196,8 +195,7 @@ super(MultiRange, self).**init**()
+ 
+     assert 0 < self.__extremes_list[0][0], "'page' count starts from 1."
+     self.__ready = True
+-
+-{% endhighlight %}
++```
+ 
+ The `__init__` method creates an instance of the class and takes the printer-style range
+ string as input (`s`). The first thing we want to do is validate the input by checking it
+@@ -221,7 +219,7 @@ from 1) and tell the class that it is `__ready` to be used.
+ 
+ ### Cleaning the list of _extremes_
+ 
+-{% highlight python %}
++```python
+ def **clean_extremes_list(self) -> None:
+ is_clean = False
+ while not is_clean:
+@@ -242,7 +240,7 @@ break
+ i += 1
+ if i >= len(self.**extremes_list)-2+popped:
+ is_clean = True
+-{% endhighlight %}
++```
+ 
+ After converting the input string into a list of number pairs (as tuples), each
+ representing a range of pages from the first number to the second one, both included.
+@@ -280,7 +278,7 @@ indeed clean and ready to be used.
+ 
+ ### The MultiRange length
+ 
+-{% highlight python %}
++```python
+ @property
+ def length(self):
+ if self.**length is None and self.**ready:
+@@ -291,7 +289,7 @@ return self.**length
+ 
+ def **len**(self) -> Optional[int]:
+ return self.length
+-{% endhighlight %}
++```
+ 
+ We want to be able to know the length of our MultiRange instance. But given that this
+ requires some computation, we want to (1) calculate it only if the MultiRange is
+@@ -361,7 +359,7 @@ range and the index of the current element in that range (starting from `(0,0)`)
+ When we reach the last element of a range, we move to the first element of the next
+ range. If we have reached the last element of the last range, it is time to stop.
+ 
+-{% highlight python %}
++```python
+ def **next**(self) -> int:
+ current_range_id, current_item = self.**current_item
+ if current_range_id >= len(self.**extremes_list):
+@@ -376,7 +374,7 @@ return current_range[0]+current_item
+ def **iter**(self) -> Iterator[int]:
+ self.\_\_current_item = (0, 0)
+ return self
+-{% endhighlight %}
++```
+ 
+ <!-- markdownlint-disable MD033 -->
+ <script defer id="set-mainheading-max-width" src="/assets/js/set-mainheading-max-width.js" data-max-width="1000px"></script>
+diff --git a/_posts/2020/2020-11-01-inktober.md b/_posts/2020/2020-11-01-inktober.md
+index 90ff888..78aed83 100644
+--- a/_posts/2020/2020-11-01-inktober.md
++++ b/_posts/2020/2020-11-01-inktober.md
+@@ -16,214 +16,187 @@ Inoltre, quest'anno sono passato a un canvas di dimensioni maggiori. Dal classic
+ 
+ ## Studio Ghibli
+ 
+-{% assign ghibli_day1 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day1.webp" %}
+-{% assign ghibli_day2 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day2.webp" %}
+-{% assign ghibli_day3 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day3.webp" %}
+-{% assign ghibli_day6 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day6.webp" %}
+-{% assign ghibli_day7 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day7.webp" %}
+-{% assign ghibli_day8 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day8.webp" %}
+-{% assign ghibli_day9 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day9.webp" %}
+-{% assign ghibli_day10 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day10.webp" %}
+-{% assign ghibli_day11 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day11.webp" %}
+-{% assign ghibli_day12 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day12.webp" %}
+-{% assign ghibli_day14 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day14.webp" %}
+-{% assign ghibli_day15 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day15.webp" %}
+-{% assign ghibli_day16 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day16.webp" %}
+-{% assign ghibli_day17 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day17.webp" %}
+-{% assign ghibli_day18 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day18.webp" %}
+-{% assign ghibli_day19 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day19.webp" %}
+-{% assign ghibli_day20 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day20.webp" %}
+-{% assign ghibli_day21 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day21.webp" %}
+-{% assign ghibli_day22 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day22.webp" %}
+-{% assign ghibli_day23 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day23.webp" %}
+-{% assign ghibli_day25 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day25.webp" %}
+-{% assign ghibli_day26 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day26.webp" %}
+-{% assign ghibli_day27 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day27.webp" %}
+-{% assign ghibli_day28 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day28.webp" %}
+-{% assign ghibli_day30 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day30.webp" %}
+-{% assign ghibli_day31 = "/assets/images/hotlink-ok/inktober-2020-ghibli/day31.webp" %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day1}}" target="_blank">
+-          <img src="{{ghibli_day1}}" alt="day1" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day1.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day1.webp" alt="day1" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day2}}" target="_blank">
+-          <img src="{{ghibli_day2}}" alt="day2" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day2.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day2.webp" alt="day2" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day3}}" target="_blank">
+-          <img src="{{ghibli_day3}}" alt="day3" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day3.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day3.webp" alt="day3" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day6}}" target="_blank">
+-          <img src="{{ghibli_day6}}" alt="day6" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day6.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day6.webp" alt="day6" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day7}}" target="_blank">
+-          <img src="{{ghibli_day7}}" alt="day7" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day7.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day7.webp" alt="day7" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day8}}" target="_blank">
+-          <img src="{{ghibli_day8}}" alt="day8" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day8.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day8.webp" alt="day8" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day9}}" target="_blank">
+-          <img src="{{ghibli_day9}}" alt="day9" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day9.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day9.webp" alt="day9" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day10}}" target="_blank">
+-          <img src="{{ghibli_day10}}" alt="day10" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day10.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day10.webp" alt="day10" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day11}}" target="_blank">
+-          <img src="{{ghibli_day11}}" alt="day11" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day11.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day11.webp" alt="day11" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day12}}" target="_blank">
+-          <img src="{{ghibli_day12}}" alt="day12" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day12.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day12.webp" alt="day12" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day14}}" target="_blank">
+-          <img src="{{ghibli_day14}}" alt="day14" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day14.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day14.webp" alt="day14" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day15}}" target="_blank">
+-          <img src="{{ghibli_day15}}" alt="day15" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day15.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day15.webp" alt="day15" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day16}}" target="_blank">
+-          <img src="{{ghibli_day16}}" alt="day16" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day16.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day16.webp" alt="day16" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day17}}" target="_blank">
+-          <img src="{{ghibli_day17}}" alt="day17" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day17.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day17.webp" alt="day17" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day18}}" target="_blank">
+-          <img src="{{ghibli_day18}}" alt="day18" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day18.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day18.webp" alt="day18" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day19}}" target="_blank">
+-          <img src="{{ghibli_day19}}" alt="day19" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day19.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day19.webp" alt="day19" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day20}}" target="_blank">
+-          <img src="{{ghibli_day20}}" alt="day20" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day20.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day20.webp" alt="day20" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day21}}" target="_blank">
+-          <img src="{{ghibli_day21}}" alt="day21" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day21.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day21.webp" alt="day21" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day22}}" target="_blank">
+-          <img src="{{ghibli_day22}}" alt="day22" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day22.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day22.webp" alt="day22" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day23}}" target="_blank">
+-          <img src="{{ghibli_day23}}" alt="day23" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day23.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day23.webp" alt="day23" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day25}}" target="_blank">
+-          <img src="{{ghibli_day25}}" alt="day25" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day25.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day25.webp" alt="day25" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day26}}" target="_blank">
+-          <img src="{{ghibli_day26}}" alt="day26" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day26.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day26.webp" alt="day26" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day27}}" target="_blank">
+-          <img src="{{ghibli_day27}}" alt="day27" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day27.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day27.webp" alt="day27" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day28}}" target="_blank">
+-          <img src="{{ghibli_day28}}" alt="day28" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day28.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day28.webp" alt="day28" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day30}}" target="_blank">
+-          <img src="{{ghibli_day30}}" alt="day30" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day30.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day30.webp" alt="day30" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{ghibli_day31}}" target="_blank">
+-          <img src="{{ghibli_day31}}" alt="day31" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-ghibli/day31.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-ghibli/day31.webp" alt="day31" />
+         </a>
+       </figure>
+     </div>
+@@ -234,62 +207,54 @@ Inoltre, quest'anno sono passato a un canvas di dimensioni maggiori. Dal classic
+ 
+ ## Portraits
+ 
+-{% assign portrait_day1 = "/assets/images/hotlink-ok/inktober-2020-portrait/day1.webp" %}
+-{% assign portrait_day2 = "/assets/images/hotlink-ok/inktober-2020-portrait/day2.webp" %}
+-{% assign portrait_day3 = "/assets/images/hotlink-ok/inktober-2020-portrait/day3.webp" %}
+-{% assign portrait_day4 = "/assets/images/hotlink-ok/inktober-2020-portrait/day4.webp" %}
+-{% assign portrait_day5 = "/assets/images/hotlink-ok/inktober-2020-portrait/day5.webp" %}
+-{% assign portrait_day7 = "/assets/images/hotlink-ok/inktober-2020-portrait/day7.webp" %}
+-{% assign portrait_day8 = "/assets/images/hotlink-ok/inktober-2020-portrait/day8.webp" %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day1}}" target="_blank">
+-          <img src="{{portrait_day1}}" alt="day1" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day1.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day1.webp" alt="day1" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day2}}" target="_blank">
+-          <img src="{{portrait_day2}}" alt="day2" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day2.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day2.webp" alt="day2" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day3}}" target="_blank">
+-          <img src="{{portrait_day3}}" alt="day3" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day3.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day3.webp" alt="day3" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day4}}" target="_blank">
+-          <img src="{{portrait_day4}}" alt="day4" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day4.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day4.webp" alt="day4" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day5}}" target="_blank">
+-          <img src="{{portrait_day5}}" alt="day5" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day5.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day5.webp" alt="day5" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day7}}" target="_blank">
+-          <img src="{{portrait_day7}}" alt="day7" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day7.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day7.webp" alt="day7" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{portrait_day8}}" target="_blank">
+-          <img src="{{portrait_day8}}" alt="day8" />
++        <a href="/assets/images/hotlink-ok/inktober-2020-portrait/day8.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/inktober-2020-portrait/day8.webp" alt="day8" />
+         </a>
+       </figure>
+     </div>
+diff --git a/_posts/2021/2021-08-08-webmentions.md b/_posts/2021/2021-08-08-webmentions.md
+index de67d28..23612fa 100644
+--- a/_posts/2021/2021-08-08-webmentions.md
++++ b/_posts/2021/2021-08-08-webmentions.md
+@@ -158,9 +158,9 @@ Then, place the following where you would like your webmentions to appear:
+ <script type="text/javascript">
+   $(function () {
+     ew_init({
+-      tag: "{{ site.webmentions.tag }}", // Webmention.io username
+-      target: "{{ site.url }}{{ page.url }}", // This page's URL
+-      read_more_uri: "{{ site.webmentions.help_page }}", // URL to help page (optional)
++      tag: "ggirelli.info", // Webmention.io username
++      target: "https://ggirelli.info/blog/2021/08/08/webmentions", // This page's URL
++      read_more_uri: "/blog/2021/08/08/webmentions", // URL to help page (optional)
+       wrap_id: "#webmentions-wrap", // ID of element where to add webmentions
+     });
+   });
+diff --git a/_posts/2021/2021-08-17-speed-up-ggplot.md b/_posts/2021/2021-08-17-speed-up-ggplot.md
+index dc10423..17ed9c7 100644
+--- a/_posts/2021/2021-08-17-speed-up-ggplot.md
++++ b/_posts/2021/2021-08-17-speed-up-ggplot.md
+@@ -41,14 +41,14 @@ Today, I finally got tired of it and went down a rabbit hole of DDG searches (ye
+ Let's start by generating a dataset of 1 million X and Y coordinates, normally
+ distributed:
+ 
+-{% highlight R %}
++```r
+ require(data.table)
+ pdata = data.table(x=rnorm(1e6), y=rnorm(1e6))
+-{% endhighlight %}
++```
+ 
+ How long would the default R `plot()` and `ggplot` methods take to plot this?
+ 
+-{% highlight R %}
++```r
+ system.time(with(pdata, plot(x, y)))
+ 
+ user system elapsed
+@@ -59,7 +59,7 @@ system.time(print(ggplot(pdata, aes(x=x, y=y)) + geom_point()))
+ 
+ user system elapsed
+ 13.331 0.220 13.552
+-{% endhighlight %}
++```
+ 
+ And here is our starting point: R would take around 11.5 s and `ggplot` even longer,
+ with ~13.6 s.
+@@ -70,12 +70,12 @@ One of the tips I found on the web comes from [a StackOverflow answer]{: target=
+ recommending to use the `pch='.'` option to plot data points as non-aliased single
+ pixels.
+ 
+-{% highlight R %}
++```r
+ system.time(print(ggplot(pdata, aes(x=x, y=y)) + geom_point(pch='.')))
+ 
+ user system elapsed
+ 2.688 0.100 2.787
+-{% endhighlight %}
++```
+ 
+ This provides a ~5x speed up, from 13.6 s to less than 3 s!
+ 
+@@ -86,14 +86,14 @@ his new R package `scattermore` (last commit to the package was on Jan 31st, 202
+ time of writing this post), which uses a C script to rasterize the dots as a bitmap and
+ then plot them with R.
+ 
+-{% highlight R %}
++```r
+ require(scattermore)
+ system.time(print(ggplot(pdata, aes(x=x, y=y)) +
+ geom_scattermore()))
+ 
+ user system elapsed
+ 0.987 0.060 1.047
+-{% endhighlight %}
++```
+ 
+ The overall speed up now is of ~13x: from 13.55 s to ~1 s!
+ 
+diff --git a/_posts/2021/2021-09-25-isola-del-garda.md b/_posts/2021/2021-09-25-isola-del-garda.md
+index e8b9746..22752b0 100644
+--- a/_posts/2021/2021-09-25-isola-del-garda.md
++++ b/_posts/2021/2021-09-25-isola-del-garda.md
+@@ -11,222 +11,194 @@ lang: [italian]
+ 
+ Qualche giorno fa sono stato in gita sull'isola del Garda con i miei genitori, con partenza in barca da Desenzano del Garda. Una volta giunti sull'isola siamo stati subito accolti da Alberta Cavazza, una dei proprietari. Dopo un aperitivo con vista sul lago, ci ha guidati lungo l'isola e all'interno di alcune aree della villa: un vero e proprio tuffo nella storia della sua famiglia. Assolutamente consigliato se siete nei dintorni! Qua sotto, qualche scatto in libertá.
+ 
+-{% assign jpg10 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-10.webp" %}
+-{% assign jpg12 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-12.webp" %}
+-{% assign jpg16 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-16.webp" %}
+-{% assign jpg18 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-18.webp" %}
+-{% assign jpg19 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-19.webp" %}
+-{% assign jpg21 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-21.webp" %}
+-{% assign jpg24 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-24.webp" %}
+-{% assign jpg29 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-29.webp" %}
+-{% assign jpg39 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-39.webp" %}
+-{% assign jpg41 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-41.webp" %}
+-{% assign jpg49 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-49.webp" %}
+-{% assign jpg50 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-50.webp" %}
+-{% assign jpg51 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-51.webp" %}
+-{% assign jpg53 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-53.webp" %}
+-{% assign jpg56 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-56.webp" %}
+-{% assign jpg57 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-57.webp" %}
+-{% assign jpg58 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-58.webp" %}
+-{% assign jpg59 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-59.webp" %}
+-{% assign jpg63 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-63.webp" %}
+-{% assign jpg65 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-65.webp" %}
+-{% assign jpg76 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-76.webp" %}
+-{% assign jpg77 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-77.webp" %}
+-{% assign jpg78 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-78.webp" %}
+-{% assign jpg79 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-79.webp" %}
+-{% assign jpg81 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-81.webp" %}
+-{% assign jpg84 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-84.webp" %}
+-{% assign jpg91 = "/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-91.webp" %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg10}}" target="_blank">
+-        <img src="{{jpg10}}" alt="isola-del-garda-10" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-10.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-10.webp" alt="isola-del-garda-10" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg12}}" target="_blank">
+-        <img src="{{jpg12}}" alt="isola-del-garda-12" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-12.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-12.webp" alt="isola-del-garda-12" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg16}}" target="_blank">
+-        <img src="{{jpg16}}" alt="isola-del-garda-16" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-16.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-16.webp" alt="isola-del-garda-16" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg18}}" target="_blank">
+-        <img src="{{jpg18}}" alt="isola-del-garda-18" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-18.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-18.webp" alt="isola-del-garda-18" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg19}}" target="_blank">
+-        <img src="{{jpg19}}" alt="isola-del-garda-19" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-19.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-19.webp" alt="isola-del-garda-19" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg21}}" target="_blank">
+-        <img src="{{jpg21}}" alt="isola-del-garda-21" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-21.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-21.webp" alt="isola-del-garda-21" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg24}}" target="_blank">
+-        <img src="{{jpg24}}" alt="isola-del-garda-24" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-24.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-24.webp" alt="isola-del-garda-24" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg29}}" target="_blank">
+-        <img src="{{jpg29}}" alt="isola-del-garda-29" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-29.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-29.webp" alt="isola-del-garda-29" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg39}}" target="_blank">
+-        <img src="{{jpg39}}" alt="isola-del-garda-39" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-39.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-39.webp" alt="isola-del-garda-39" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg41}}" target="_blank">
+-        <img src="{{jpg41}}" alt="isola-del-garda-41" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-41.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-41.webp" alt="isola-del-garda-41" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg49}}" target="_blank">
+-        <img src="{{jpg49}}" alt="isola-del-garda-49" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-49.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-49.webp" alt="isola-del-garda-49" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg50}}" target="_blank">
+-        <img src="{{jpg50}}" alt="isola-del-garda-50" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-50.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-50.webp" alt="isola-del-garda-50" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg51}}" target="_blank">
+-        <img src="{{jpg51}}" alt="isola-del-garda-51" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-51.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-51.webp" alt="isola-del-garda-51" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg53}}" target="_blank">
+-        <img src="{{jpg53}}" alt="isola-del-garda-53" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-53.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-53.webp" alt="isola-del-garda-53" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg56}}" target="_blank">
+-        <img src="{{jpg56}}" alt="isola-del-garda-56" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-56.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-56.webp" alt="isola-del-garda-56" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg57}}" target="_blank">
+-        <img src="{{jpg57}}" alt="isola-del-garda-57" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-57.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-57.webp" alt="isola-del-garda-57" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg58}}" target="_blank">
+-        <img src="{{jpg58}}" alt="isola-del-garda-58" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-58.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-58.webp" alt="isola-del-garda-58" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg59}}" target="_blank">
+-        <img src="{{jpg59}}" alt="isola-del-garda-59" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-59.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-59.webp" alt="isola-del-garda-59" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg63}}" target="_blank">
+-        <img src="{{jpg63}}" alt="isola-del-garda-63" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-63.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-63.webp" alt="isola-del-garda-63" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg65}}" target="_blank">
+-        <img src="{{jpg65}}" alt="isola-del-garda-65" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-65.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-65.webp" alt="isola-del-garda-65" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg76}}" target="_blank">
+-        <img src="{{jpg76}}" alt="isola-del-garda-76" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-76.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-76.webp" alt="isola-del-garda-76" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg77}}" target="_blank">
+-        <img src="{{jpg77}}" alt="isola-del-garda-77" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-77.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-77.webp" alt="isola-del-garda-77" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg78}}" target="_blank">
+-        <img src="{{jpg78}}" alt="isola-del-garda-78" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-78.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-78.webp" alt="isola-del-garda-78" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg79}}" target="_blank">
+-        <img src="{{jpg79}}" alt="isola-del-garda-79" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-79.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-79.webp" alt="isola-del-garda-79" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg81}}" target="_blank">
+-        <img src="{{jpg81}}" alt="isola-del-garda-81" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-81.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-81.webp" alt="isola-del-garda-81" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg84}}" target="_blank">
+-        <img src="{{jpg84}}" alt="isola-del-garda-84" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-84.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-84.webp" alt="isola-del-garda-84" />
+       </a>
+     </figure>
+   </div>
+   <div class="col col-4">
+     <figure class="figure m-auto my-2">
+-      <a href="{{jpg91}}" target="_blank">
+-        <img src="{{jpg91}}" alt="isola-del-garda-91" />
++      <a href="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-91.webp" target="_blank">
++        <img src="/assets/images/hotlink-ok/isola-del-garda-2021/isola-del-garda-91.webp" alt="isola-del-garda-91" />
+       </a>
+     </figure>
+   </div>
+diff --git a/_posts/2022/2022-09-03-command-palette.md b/_posts/2022/2022-09-03-command-palette.md
+index 6430f11..5243776 100644
+--- a/_posts/2022/2022-09-03-command-palette.md
++++ b/_posts/2022/2022-09-03-command-palette.md
+@@ -27,7 +27,7 @@ So, I got inspired by it and implemented a sort of interactive menu/command pale
+ is accessible on every page of this website too. You can access it by pressing
+ **Ctrl+<u class="font-monospace imenu_trigger_key" />**{: .font-monospace} (
+ <u class="font-monospace imenu_trigger_key" /> as menu) or clicking
+-[here]({{page.url}}){: .imenu_manual_trigger}.
++[here](/blog/2022/09/03/command-palette){: .imenu_manual_trigger}.
+ 
+ Go ahead and try it out, it is already up and running 🎉
+ 
+diff --git a/_posts/2023/2023-05-15-May-train-trip-pt3.md b/_posts/2023/2023-05-15-May-train-trip-pt3.md
+index 3dcbc81..bd2fae6 100644
+--- a/_posts/2023/2023-05-15-May-train-trip-pt3.md
++++ b/_posts/2023/2023-05-15-May-train-trip-pt3.md
+@@ -54,30 +54,26 @@ reach it on foot in less than 5 minutes from the train station.
+ 
+ ---
+ 
+-{% assign pt3_pic2 = "/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-002.webp" %}
+-{% assign pt3_pic3 = "/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-003.webp" %}
+-{% assign pt3_pic4 = "/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-004.webp" %}
+-
+ <!-- markdownlint-disable MD033 -->
+ <div class="row lightbox slideshow">
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{pt3_pic2}}" target="_blank">
+-          <img src="{{pt3_pic2}}" alt="day1" />
++        <a href="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-002.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-002.webp" alt="day1" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{pt3_pic3}}" target="_blank">
+-          <img src="{{pt3_pic3}}" alt="day2" />
++        <a href="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-003.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-003.webp" alt="day2" />
+         </a>
+       </figure>
+     </div>
+     <div class="col col-4">
+       <figure class="figure m-auto my-3">
+-        <a href="{{pt3_pic4}}" target="_blank">
+-          <img src="{{pt3_pic4}}" alt="day3" />
++        <a href="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-004.webp" target="_blank">
++          <img src="/assets/images/hotlink-ok/2023-germany-train-trip-may/germany-train-trip-may-2023-pt3-004.webp" alt="day3" />
+         </a>
+       </figure>
+     </div>

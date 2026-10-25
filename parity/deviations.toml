@@ -1,0 +1,40 @@
+# Intentional differences from the Jekyll baseline (plan §9.4). The parity tools suppress only
+# what is listed here; each entry says what changes, why, and how the change is verified.
+# status: "proposed" until approved, then "accepted" (with the date).
+
+[[deviation]]
+id = "D-001"
+status = "accepted"
+accepted = "2026-10-25" # Q1 (plan §14), after review of the spike 3 evidence
+title = "Highlight blocks become fenced code blocks"
+introduced_by = "spike 3: parity/codemods/deliquify.py, filopoe commit 542c9a96"
+sources = [
+  "_posts/2020/2020-01-26-multirange.md",
+  "_posts/2021/2021-08-17-speed-up-ggplot.md",
+]
+change = """
+The 11 `{% highlight lang %}` blocks become fenced code blocks. Their wrapper markup changes from
+`figure.highlight > pre > code.language-x[data-lang=x]` to
+`div.language-x.highlighter-rouge > div.highlight > pre.highlight > code`, and the code gains one
+trailing newline, which kramdown keeps in every fenced block (all 40 existing ones have it).
+Language, code text and Rouge tokens are otherwise unchanged, and so is all other text.
+"""
+rationale = """
+Markdown bodies are content, not templates (plan §3): `{% highlight %}` is Liquid, and a fenced
+block is how every other post on the site marks code.
+"""
+# The only outputs this deviation may change, relative to a baseline (parity/spike3-expected.txt).
+affected_outputs = [
+  "dump/content/_posts/2020/2020-01-26-multirange.md.html",
+  "dump/content/_posts/2021/2021-08-17-speed-up-ggplot.md.html",
+  "dump/excerpt/_posts/2020/2020-01-26-multirange.md.html",
+  "dump/excerpt/_posts/2021/2021-08-17-speed-up-ggplot.md.html",
+  "site/blog/2020/01/26/multirange.html",
+  "site/blog/2021/08/17/speed-up-ggplot.html",
+  "site/blog/tag/R.xml",
+  "site/blog/tag/plot.xml",
+  "site/blog/tag/python.xml",
+]
+verified_by = "parity/codemods/check_d001.py, against parity/spike3-expected.txt"
+evidence = "parity/evidence/spike3/"
+follow_up = "visual check of the two posts"

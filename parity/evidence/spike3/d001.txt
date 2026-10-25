@@ -1,0 +1,11 @@
+python3 -I parity/codemods/check_d001.py ../folia-baselines/e872c37 ../folia-baselines/deliquified $(sed -e 's/#.*//' -e '/^[[:space:]]*$/d' parity/spike3-expected.txt)
+D-001 only: dump/content/_posts/2020/2020-01-26-multirange.md.html (7 blocks)
+D-001 only: dump/content/_posts/2021/2021-08-17-speed-up-ggplot.md.html (4 blocks)
+D-001 only: dump/excerpt/_posts/2020/2020-01-26-multirange.md.html (7 blocks)
+D-001 only: dump/excerpt/_posts/2021/2021-08-17-speed-up-ggplot.md.html (4 blocks)
+D-001 only: site/blog/2020/01/26/multirange.html (7 blocks)
+D-001 only: site/blog/2021/08/17/speed-up-ggplot.html (4 blocks)
+D-001 only: site/blog/tag/R.xml (4 blocks)
+D-001 only: site/blog/tag/plot.xml (4 blocks)
+D-001 only: site/blog/tag/python.xml (7 blocks)
+9 of 9 files differ by D-001 only.
