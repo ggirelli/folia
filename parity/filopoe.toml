@@ -1,7 +1,10 @@
-# Folia's configuration for the reference site (filopoe), used by the parity tools until the site
-# carries its own folia.toml (plan v3, §14 Q5 and Q8).
+# Folia's configuration for the reference site (filopoe), used by the parity tools and
+# `just build` until the site carries its own, as _folia/folia.toml (plan v6, §14 Q5 and Q8).
 
 time-zone = "Europe/Stockholm"
+
+# The site's templates (Q5): in the site, in a directory Jekyll ignores.
+templates-dir = "_folia/templates"
 
 include = [".htaccess"]
 
@@ -33,3 +36,9 @@ exclude = [
 blog = "_posts"
 micro = "_micro"
 garden = "_digital_garden"
+
+# What _config.yml says the site is: `url`, and `title` (also its `name`) and `description`.
+[site]
+url = "https://ggirelli.info"
+title = "Filopoetica"
+description = "An eclectic blog."
