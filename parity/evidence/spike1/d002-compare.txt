@@ -1,0 +1,15 @@
+D-002 source fix, verified before committing it: Jekyll's output for filopoe 542c9a96 with
+the fix uncommitted (baseline 542c9a9-d002, its site.diff the fix) against 542c9a96 itself.
+
+scripts/compare-builds.sh ../folia-baselines/542c9a9 ../folia-baselines/542c9a9-d002 
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+No unexpected differences.
+
+Rechecked on 2026-10-25 with a fresh build of the same uncommitted tree, whose working tree
+still matched 542c9a9-d002/site.diff exactly:
+
+scripts/compare-builds.sh ../folia-baselines/542c9a9 ../folia-baselines/542c9a9-d002-recheck 
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+No unexpected differences.

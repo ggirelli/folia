@@ -1,0 +1,9 @@
+cargo run --quiet --locked -p parity -- routes --site ../filopoe --baseline ../folia-baselines/d332352 --config parity/filopoe.toml
+Route parity: ../filopoe at d3323522, built 2026-10-25T14:43:51Z.
+Folia planned 1077 outputs, with no URL or output file planned twice.
+ok: Authored outputs (source, URL, output): Jekyll 985, Folia 985, identical.
+ok: Classification of sources: Jekyll 977, garden note: 54, micro entry: 39, page: 30, post: 79, static file: 775, identical.
+ok: Generated outputs (URL, output): Jekyll 92, Folia 92, identical.
+ok: Redirect stubs (URL, output): Jekyll 26, Folia 26, identical.
+Folia's outputs by origin: authored 977, blog feed 1, category archive 10, garden feed 1, micro feed 1, micro kind feed 4, note graph 1, pagination 8, redirect stub 26, redirects 1, sass source map 2, sitemap 1, tag feed 44.
+Route parity holds.

@@ -1,0 +1,9 @@
+scripts/compare-builds.sh ../folia-baselines/542c9a9-d002 ../folia-baselines/d332352 
+dump: compared byte for byte.
+site: compared after normalizing 52 / 52 Atom feeds (1077 / 1077 files).
+Unexpected differences (4):
+  changed dump/meta/_posts/2016/2016-09-04-chocolate-salame.md.json
+  changed site/blog/2016/09/04/chocolate-salame.html
+  changed site/blog/tag/dessert.xml
+  changed site/sitemap.xml
+(exit 1)

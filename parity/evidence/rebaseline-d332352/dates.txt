@@ -1,0 +1,5 @@
+python3 -I parity/check_date_shift.py ../folia-baselines/542c9a9-d002 ../folia-baselines/d332352
+1 changed dates; 3 differing site files.
+  2025-11-21T19:36:39+01:00 -> 2026-10-25T15:43:44+01:00
+Every difference is a changed last-modified date.
+(exit 0)

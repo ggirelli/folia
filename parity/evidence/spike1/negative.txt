@@ -1,0 +1,219 @@
+Negative test of `cargo run -p parity -- markdown` (spike 1), made by
+`scripts/markdown-negative.sh ../filopoe ../folia-baselines/d332352 WORKDIR`
+(`just markdown-negative d332352`). A copy of the baseline's dump is changed once per gate,
+and a copy of the ledger narrows and widens D-003:
+
+  G1     _posts/2021/2021-08-08-webmentions.md: the first heading's id gains "-x"
+  G2     the same post: target="blank" removed from one link (attributes), and the trailing "/"
+         removed from another link's href (link targets)
+  G3     the same post: "a forum" becomes "a fórum"
+  G4     every change above that alters the tree
+  G5     _micro/notes/2026-04-08-finished.md: the excerpt gains "Extra. "
+  G6     _digital_garden/coding/rust.md: the first code block gains an "X"; Jekyll's body for
+         this D-003 note changes, so D-003's check fails and its G5 difference is unexplained
+  D-003  _digital_garden/projects/index.md: Jekyll's excerpt is replaced with its body, so the
+         note no longer shows the deviation, and the entry's listing of it fails
+  D-003  the ledger copy drops _digital_garden/travel-tips/index.md (its G5 difference is then
+         unexplained) and adds _digital_garden/quotes.md (which shows no such difference)
+
+The tool exits with status 1. Its report:
+
+# Markdown parity against d3323522
+
+190 documents: 135 identical, 53 equal after normalization, 2 differ.
+
+| Gate | Failing | Unexplained | Explained by the ledger | Result |
+|-|-:|-:|-|-|
+| G1 heading IDs | 1 | 1 |  | FAIL |
+| G2 link targets | 1 | 1 |  | FAIL |
+| G2 attributes | 1 | 1 |  | FAIL |
+| G3 text | 2 | 2 |  | FAIL |
+| G4 structure | 2 | 2 |  | 98.9% equal; FAIL |
+| G5 excerpts | 19 | 3 | D-003 (accepted) | FAIL |
+| G6 code text | 1 | 1 |  | FAIL |
+
+FAIL: D-003 lists `_digital_garden/coding/rust.md`, which shows no difference it explains.
+
+FAIL: D-003 lists `_digital_garden/projects/index.md`, which shows no difference it explains.
+
+FAIL: D-003 lists `_digital_garden/quotes.md`, which shows no difference it explains.
+
+Garden excerpts (D-003), for the 54 notes whose excerpt is their body: 19 have wiki-links; Jekyll's excerpt shows something other than its body for 18; Folia's, with wiki-links resolved, shows what Jekyll's body shows for 53.
+
+G6 highlighting: 77 code blocks, 76 with equal text. Token classes agree with Rouge's on these non-whitespace characters:
+
+| Language | Blocks | Characters | Agreement |
+|-|-:|-:|-:|
+| (raw HTML pre) | 28 | 3981 | 100.0% |
+| bash | 17 | 1176 | 87.1% |
+| email | 1 | 22 | 0.0% |
+| html | 3 | 641 | 98.8% |
+| javascript | 4 | 3148 | 96.5% |
+| python | 12 | 5204 | 97.8% |
+| r | 4 | 454 | 99.8% |
+| rust | 1 | 0 | 0.0% |
+| text | 4 | 15039 | 100.0% |
+| toml | 2 | 624 | 99.5% |
+| yaml | 1 | 71 | 84.5% |
+| **lexed by Rouge** | | 11340 | **96.3%** |
+
+Largest disagreements (characters; an empty class is unmarked text):
+
+| Language | Rouge | Folia | Characters |
+|-|-|-|-:|
+| bash | `nb` | `` | 86 |
+| javascript | `nf` | `nb` | 33 |
+| python | `nf` | `nb` | 31 |
+| python | `sh` | `s` | 28 |
+| email | `nt` | `` | 22 |
+| javascript | `s2` | `dl` | 16 |
+| bash | `nv` | `` | 15 |
+| python | `nb` | `n` | 14 |
+| python | `o` | `p` | 11 |
+| javascript | `nc` | `nx` | 10 |
+| python | `err` | `p` | 10 |
+| bash | `` | `s2` | 9 |
+| bash | `nt` | `` | 9 |
+| bash | `s1` | `` | 9 |
+| javascript | `k` | `ow` | 9 |
+| bash | `o` | `` | 8 |
+| html | `nf` | `kd` | 8 |
+| javascript | `nb` | `nx` | 8 |
+| javascript | `o` | `k` | 8 |
+| yaml | `na` | `s` | 8 |
+
+## Documents
+
+### `_posts/2021/2021-08-08-webmentions.md` (Differs)
+
+- G1 heading IDs: `item 1 of 8 / 8: Some("privacy-and-content-ownership-x") / Some("privacy-and-content-ownership")`
+- G2 attributes: `item 1 of 35 / 36: Some("<a> target=blank -> https://wordpress.org") / Some("<a> target=blank -> https://filopoe.forumfree.net")`
+- G2 link targets: `item 18 of 21 / 21: Some("a href=https://wordpress.org") / Some("a href=https://wordpress.org/")`
+- G3 text: `item 1 of 1 / 1: Some("I have taken a clear direction in this ever more connected life: trying to retain possession of my content and privacy. Let me explain. Privacy and content ownership I was one of the last in my circle to jump onboard the social media ship back in 2009. From there, I ended up with accounts all over the net. Some on platforms with clear privacy policies, others in shadier plac…`
+- G4 structure: `/h3[1]: attributes {"id": "privacy-and-content-ownership-x"} / {"id": "privacy-and-content-ownership"}`
+
+### `_digital_garden/book-club/2014-books_list.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "This is an incomplete list.                              [[Fourth Kingdom Trilogy - by J12H          J12H - Fourth Kingdom Trilogy]]                         ..." / "This is an incomplete list.  J12H - Fourth Kingdom Trilogy          The Traveller.      The Dark River.      The Golden City.        Raymond F. Jones - Renai..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "This is an incomplete list. [[Fourth Kingdom Trilogy - by J12H J12H - Fourth Kingdom Trilogy]] The Traveller. The Dark River. The Golden City. [[Renaissance - by Raymond F. Jones..." / "This is an incomplete list.\n\n\n  J12H - Fourth Kingdom Trilogy\n    \n      The Traveller.\n      The Dark River.\n      The Golden City.\n    \n  \n  Raymond F. Jones - Renaissan…`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "This is an incomplete list. [[Fourth Kingdom Trilogy - by J12H J12H - Fourth Kingdom Trilogy]] The Traveller. The Dark River. The Golden City. [[Renaissance - by Raymond F. Jones Raymond F. Jones - Renaissance]]" / "This is an incomplete list. J12H - Fourth Kingdom Trilogy The Traveller. The Dark River. The Golden City. Raymond F. Jones - Renaissance"`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/2016-books_list.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "This is an incomplete list.                              [[Dune - by Frank Herbert          Frank Herbert - Dune]]                                           ..." / "This is an incomplete list.  Frank Herbert - Dune  Stephen King - Doctor Sleep"`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "This is an incomplete list.\n\n\n  \n    \n      \n        \n          [[Dune - by Frank Herbert\n          Frank Herbert - Dune]]\n        \n      \n    \n  \n  \n    \n      \n        \n          [[Doctor Sleep - by Stephen King\n          Stephen King - Doctor Sleep]]\n        \n      \n    \n  \n\n" / "This is an incomplete list.\n\n\n  Frank Herbert - Dune\n  …`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "This is an incomplete list. [[Dune - by Frank Herbert Frank Herbert - Dune]] [[Doctor Sleep - by Stephen King Stephen King - Doctor Sleep]]" / "This is an incomplete list. Frank Herbert - Dune Stephen King - Doctor Sleep"`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/2025-books_list.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "                              [[The Wisdom of Insecurity - A message for an age of anxiety by Alan Watts          Alan Watts - The Wisdom of Insecurity: a me..." / "  Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety.  Carlo Rovelli - Buchi Bianchi: dentro l’orizzonte.  Erich Fromm          The Art o..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "[[The Wisdom of Insecurity - A message for an age of anxiety by Alan Watts Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety]]. [[Buchi..." / "Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety. Carlo Rovelli - Buchi Bianchi: dentro l’orizzonte. Erich Fromm The Art of Listening. The Art of..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "[[The Wisdom of Insecurity - A message for an age of anxiety by Alan Watts Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety]]. [[Buchi Bianchi - Dentro l’orizzonte by Carlo Rovelli Carlo Rovelli - Buchi Bianchi: dentro l’orizzonte]]. Erich Fromm [[The art of listening - by Erich Fromm The Art of Listening]]. [[The Art of Loving - by Erich F…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/2026-books_list.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "  I. Asimov - Le Grandi Storie della Fantascienza 3.  F. Dürrenmatt          Greco cerca greca.                                                  [[La Morte d..." / "  I. Asimov - Le Grandi Storie della Fantascienza 3.  F. Dürrenmatt          Greco cerca greca.      La Morte della Pizia.      La guerra invernale nel Tibet..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "I. Asimov - Le Grandi Storie della Fantascienza 3. F. Dürrenmatt Greco cerca greca. [[La Morte della Pizia - Friedrich Dürrenmatt La Morte della Pizia]]. [[La guerra invernale nel Tibet..." / "I. Asimov - Le Grandi Storie della Fantascienza 3. F. Dürrenmatt Greco cerca greca. La Morte della Pizia. La guerra invernale nel Tibet Minotauro. R. Guénon - La Metafisica O…`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "I. Asimov - Le Grandi Storie della Fantascienza 3. F. Dürrenmatt Greco cerca greca. [[La Morte della Pizia - Friedrich Dürrenmatt La Morte della Pizia]]. [[La guerra invernale nel Tibet - Friedrich Dürrenmatt La guerra invernale nel Tibet]] Minotauro. [[La Metafisica Orientale - René Guénon R. Guénon - La Metafisica Orientale]] H. Kang - Non dico addio. T. Pratc…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/book-quotes/2025-08-22-art-of-loving.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "Published by Harper, in English.My two centsI absolutely loved reading this book. I highly recommend it to everyone,together with the [[The Art of Listening ..." / "Published by Harper, in English.My two centsI absolutely loved reading this book. I highly recommend it to everyone,together with the The Art of Listening.I ..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "Published by Harper, in English. My two cents I absolutely loved reading this book. I highly recommend it to everyone, together with the [[The Art of Listening - by Erich..." / "Published by Harper, in English. My two cents I absolutely loved reading this book. I highly recommend it to everyone, together with the The Art of Listening. I found myself,..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "Published by Harper, in English. My two cents I absolutely loved reading this book. I highly recommend it to everyone, together with the [[The Art of Listening - by Erich Fromm|The Art of Listening]]. I found myself, and many people I know, in many of the examples the author brings up. Quotes P. 27 It is clear that respect is possible only if I have achieved ind…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/book-quotes/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "A collection of quotes from a bunch of different books I read or skimmed through.                              [[The Wisdom of Insecurity - A message for an ..." / "A collection of quotes from a bunch of different books I read or skimmed through.  Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety.  A..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "A collection of quotes from a bunch of different books I read or skimmed through. [[The Wisdom of Insecurity - A message for an age of anxiety by Alan Watts..." / "A collection of quotes from a bunch of different books I read or skimmed through. Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety. Albert..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "A collection of quotes from a bunch of different books I read or skimmed through. [[The Wisdom of Insecurity - A message for an age of anxiety by Alan Watts Alan Watts - The Wisdom of Insecurity: a message for an age of anxiety]]. [[Camus’ The myth of Sisyphus Albert Camus - The Myth of Sisyphus]]. [[Buchi Bianchi - Dentro l’orizzonte by Carlo Rovelli Carlo Rove…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/book-club/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "[[Book quotes]] are collected in the relative page.I am tracking the books I have read, by year, below:  [[Books I read in 2014]]  [[Books I read in 2016]]  ..." / "Book quotes are collected in the relative page.I am tracking the books I have read, by year, below:  Books I read in 2014  Books I read in 2016  …  Books I r..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "[[Book quotes]] are collected in the relative page. I am tracking the books I have read, by year, below: [[Books I read in 2014]] [[Books I read in 2016]] …..." / "Book quotes are collected in the relative page. I am tracking the books I have read, by year, below: Books I read in 2014 Books I read in 2016 …..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "[[Book quotes]] are collected in the relative page. I am tracking the books I have read, by year, below: [[Books I read in 2014]] [[Books I read in 2016]] … [[Books I read in 2025]] [[Books I read in 2026]] A list of books I am currently reading can be found at the now page instead." / "Book quotes are collected in the relative page. I am tracking the books I ha…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/coding/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "A collection of tips, tricks, snippets, and other resources useful for anybodywho’s on the journey to become a master informagician 🪄      🐙 jj [[Version Con..." / "A collection of tips, tricks, snippets, and other resources useful for anybodywho’s on the journey to become a master informagician 🪄      🐙 jj Version Contr..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "A collection of tips, tricks, snippets, and other resources useful for anybody who’s on the journey to become a master informagician 🪄 🐙 jj [[Version Control Systems]] 🐃 pb [[Hello,..." / "A collection of tips, tricks, snippets, and other resources useful for anybody who’s on the journey to become a master informagician 🪄 🐙 jj Version Control Systems 🐃 pb Hello,...…`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "A collection of tips, tricks, snippets, and other resources useful for anybody who’s on the journey to become a master informagician 🪄 🐙 jj [[Version Control Systems]] 🐃 pb [[Hello, Protobuff(alo)]] 🐍 py [[Who wants to be a Pythonista?]] 🦀 rs [[Do Rustaceans walk sideways?]] 🐚 sh [[Can you hear the sea? 🐚 Can you hear the sea?]] 🌐 ww [[Web development]] Coding c…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/coding/python/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "For some instructions on how to setup python on your system for the firsttime, check out the page: [[First setup: python]].                              [[Do..." / "For some instructions on how to setup python on your system for the firsttime, check out the page: First setup: python.  uv: Python package manager by Astral..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "For some instructions on how to setup python on your system for the first time, check out the page: [[First setup: python]]. [[Don’t forget your SPF! 🌞😎 uv]]: Python package..." / "For some instructions on how to setup python on your system for the first time, check out the page: First setup: python. uv: Python package manager by Astral! How to..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "For some instructions on how to setup python on your system for the first time, check out the page: [[First setup: python]]. [[Don’t forget your SPF! 🌞😎 uv]]: Python package manager by Astral! How to implement [[CLI dev in Python CLIs]] in Python. [[Python: type checking Type checking]] Don’t you wanna dance the mamba? A Python package and environment manager; a…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/coding/rust.md` (Differs)
+
+- G3 text: `item 1 of 1 / 1: Some("This year (2022), I approached the Advent of Code with one aim: to learn Rust 🦀. I had already read a couple of chapters from the Rust book back in October, and had written a couple of simple functions, so AoC seemed like the perfect occasion to challenge myself while learning something new. Furthermore, the fact that Rust was second place in the language of AoC GitHub repos…`
+- G4 structure: `/div[1]/div[1]/pre[1]/text()[1]: text "X#[cfg(test)]\nmod test {\n  // Re-use parent mod imports\n  use super::*;\n\n  // He…" / text "#[cfg(test)]\nmod test {\n  // Re-use parent mod imports\n  use super::*;\n\n  // Her…"`
+- G5 excerpts: `strip_html | normalize_whitespace: "This year (2022), I approached the Advent of Code with one aim: to learn Rust 🦀. I had already read a couple of chapters from the Rust book back in October, and had written a couple of simple functions, so AoC seemed like the perfect occasion to challenge myself while learning something new. Furthermore, the fact that Rust was second place in the language of AoC…`
+- G6 code text: `block 1: "X#[cfg(test)]\nmod test {\n  // Re-use parent mod imports\n  use super::*;\n\n  // Here more test-only imports\n\n  #[test]\n  fn test_foo() {}\n}\n" / "#[cfg(test)]\nmod test {\n  // Re-use parent mod imports\n  use super::*;\n\n  // Here more test-only imports\n\n  #[test]\n  fn test_foo() {}\n}\n"`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: false
+
+### `_digital_garden/coding/versioning/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "For some instructions on how to setup support for code forges on your system forthe first time, check out the page: [[First setup: code forges]].  Mercurial ..." / "For some instructions on how to setup support for code forges on your system forthe first time, check out the page: First setup: code forges.  Mercurial (hg)..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "For some instructions on how to setup support for code forges on your system for the first time, check out the page: [[First setup: code forges]]. Mercurial (hg), was the..." / "For some instructions on how to setup support for code forges on your system for the first time, check out the page: First setup: code forges. Mercurial (hg), was the..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "For some instructions on how to setup support for code forges on your system for the first time, check out the page: [[First setup: code forges]]. Mercurial (hg), was the first VCS I ever used, before switching to git. Git: my advices for a first git setup on your machine are here: [[First setup: git]]. Note: I left git for jj! [[Jujutsu]] (not so Kaizen) Code f…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/coding/versioning/jujutsu.md` (Equal)
+
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "Jujutsu is a powerful VCS that will make you feel like time traveling is not only possible, but it is also easy and comfortable! Find out more on GitHub: jj-vcs/jj For some instructions on how to setup jj on your system for the first time, check out the page: [[First setup: jujutsu]]. Strategy Just want to capture how I use jj in my daily routine. Start working …`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/coding/web-dev.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "For some instructions on how to setup the tools mentioned in this page on yoursystem for the first time, check out the page: [[First setup: web development]]..." / "For some instructions on how to setup the tools mentioned in this page on yoursystem for the first time, check out the page: First setup: web development.Min..."`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "For some instructions on how to setup the tools mentioned in this page on your system for the first time, check out the page: [[First setup: web development]]. Minification For..." / "For some instructions on how to setup the tools mentioned in this page on your system for the first time, check out the page: First setup: web development. Minification For..."`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "For some instructions on how to setup the tools mentioned in this page on your system for the first time, check out the page: [[First setup: web development]]. Minification For Javascript, one can use terser. Run with terser example.js -o example.min.js -m (with mangling). For CSS, one can use csso. Run with csso -i example.css -o example.min.css. For images, us…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/index.md` (Equal)
+
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "🌳 🌳 Welcome to my new garden! 🏡 🪴 🌳 I entered the world of Personal Knowledge Managers (a.k.a, PKMs) some time ago. Now, after playing for a few years with Notion, Taskade, Obsidian, and other services, I feel the time has come to grow my jungle in public! To this end, I integrated the digital-garden-jekyll-template by Maxime Vaillancourt to this website. I wrot…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/indieweb/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "The Indie Web is a movement of independent people on the web, each curating their own patch of the internet. Sometimes these patches are called blogs, or gardens, or islands, or something entirely new. Every patch is typically unique, and crafted to the needs and tastes of its curator. So, if you are coming from mainstream platforms, and are used to standardized…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/projects/deplatforming.md` (Equal)
+
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "Platforms I am planning to leave or use less. I will document the journey here. I will tag every paid service as such, so if nothing is written it means I use the free tier or it is free in general. Apple 🙅\u{200d}♂\u{fe0f} Only left with one iPad for sketching. Amazon 🙅 Canceled my Prime subscription. ✅🎉 Downloaded all my ebooks and switched to an Onyx Boox Go …`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/projects/oligo-melting/index.md` (Identical)
+
+- G5 excerpts (D-003, accepted): `strip_html | strip_newlines | truncate: 160: "A Python package for fast calculation of melting temperature of oligonucleotidesequences.  Original code on GitHub  Available via PyPiThoughts  [[A new versi..." / "A Python package for fast calculation of melting temperature of oligonucleotidesequences.  Original code on GitHub  Available via PyPiThoughts  A new version?"`
+- G5 excerpts (D-003, accepted): `strip_html | truncatewords: 30: "A Python package for fast calculation of melting temperature of oligonucleotide\nsequences.\n\n\n  Original code on GitHub\n  Available via PyPi\n\n\nThoughts\n\n\n  [[A new version?]]\n\n" / "A Python package for fast calculation of melting temperature of oligonucleotide\nsequences.\n\n\n  Original code on GitHub\n  Available via PyPi\n\n\nThoughts\n\n\n  A new ve…`
+- G5 excerpts (D-003, accepted): `strip_html | normalize_whitespace: "A Python package for fast calculation of melting temperature of oligonucleotide sequences. Original code on GitHub Available via PyPi Thoughts [[A new version?]]" / "A Python package for fast calculation of melting temperature of oligonucleotide sequences. Original code on GitHub Available via PyPi Thoughts A new version?"`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_digital_garden/travel-tips/index.md` (Identical)
+
+- G5 excerpts: `strip_html | truncatewords: 30: "Here I’ll keep track of the countries I have visited, and note down some tips (beautiful place, yummy food, etc…). Africa Algeria Egypt Asia [[Travel tips: Japan Japan]] Europe Center..." / "Here I’ll keep track of the countries I have visited, and note down some tips (beautiful place, yummy food, etc…). Africa Algeria Egypt Asia Japan Europe Center Austria Belgium…`
+- G5 excerpts: `strip_html | normalize_whitespace: "Here I’ll keep track of the countries I have visited, and note down some tips (beautiful place, yummy food, etc…). Africa Algeria Egypt Asia [[Travel tips: Japan Japan]] Europe Center Austria Belgium Czechia France Germany Switzerland Hungary Netherland Slovakia North Estonia Faroeöarna Finland Iceland Norway Sweden UK South Croatia Greece Italy Portugal Spain T…`
+- D-003 check: wiki-links in the excerpt: true; Jekyll's excerpt differs from its body: true; Folia's excerpt shows what Jekyll's body shows: true
+
+### `_micro/notes/2026-04-08-finished.md` (Equal)
+
+- G5 excerpts: `strip_html | strip_newlines | truncate: 160: "Extra. I just had the pleasure of reading Terry Godier’s post “The Last Quiet Thing”,and — wow — it really hits home. I recommend checking it out but — witho..." / "I just had the pleasure of reading Terry Godier’s post “The Last Quiet Thing”,and — wow — it really hits home. I recommend checking it out but — withoutany m..."`
+- G5 excerpts: `strip_html | truncatewords: 30: "Extra. I just had the pleasure of reading Terry Godier’s post “The Last Quiet Thing”, and — wow — it really hits home. I recommend checking it out but —..." / "I just had the pleasure of reading Terry Godier’s post “The Last Quiet Thing”, and — wow — it really hits home. I recommend checking it out but — without..."`
+- G5 excerpts: `strip_html | normalize_whitespace: "Extra. I just had the pleasure of reading Terry Godier’s post “The Last Quiet Thing”, and — wow — it really hits home. I recommend checking it out but — without any major spoilers — the takeaway message (for me) is that most products we “own” have turned into relationships with unfinished, ever-mutating products. I felt something similar with my phone, a Samsung…`
+- G5 excerpts: `raw excerpt: /p[1]/text()[1]: text "Extra. I just had the pleasure of reading Terry Godier’s post “" / text "I just had the pleasure of reading Terry Godier’s post “"`
+

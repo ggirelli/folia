@@ -38,3 +38,84 @@ affected_outputs = [
 verified_by = "parity/codemods/check_d001.py, against parity/spike3-expected.txt"
 evidence = "parity/evidence/spike3/"
 follow_up = "visual check of the two posts"
+
+[[deviation]]
+id = "D-002"
+status = "withdrawn"
+withdrawn = "2026-10-25" # Q10 (plan §14): the source was fixed instead
+title = "Emphasis follows CommonMark's flanking rules"
+introduced_by = "spike 1: folia_core::content::markdown (pulldown-cmark)"
+sources = [
+  "_posts/2016/2016-09-04-chocolate-salame.md",
+]
+change = """
+In `the eggs**!**`, kramdown makes `!` strong. CommonMark does not open emphasis between a letter
+and punctuation, so Folia showed the asterisks. It was the only such case in the content.
+"""
+resolution = """
+The source now reads `eggs<strong>!</strong>`, committed in `filopoe` as d3323522 (on top of
+542c9a96). Inside `<small>` kramdown parses the HTML, so Jekyll's output is unchanged: baselines
+542c9a9 and 542c9a9-d002 (the fix, uncommitted) compare equal, dumps byte for byte
+(`parity/evidence/spike1/d002-compare.txt`), and the clean baseline d332352 differs from them
+only by the post's moved git date (`parity/evidence/rebaseline-d332352/`). Against d332352, Folia
+passes G3, G4 and G5 for the post with no deviation. The entry stays so that its number is not
+reused; a withdrawn entry explains nothing.
+"""
+verified_by = "just compare 542c9a9 542c9a9-d002; just check-date-shift 542c9a9 d332352; just markdown d332352"
+evidence = "parity/evidence/spike1/"
+
+[[deviation]]
+id = "D-003"
+status = "accepted"
+accepted = "2026-10-25" # Q11 (plan §14), after review of the spike 1 evidence
+title = "Garden excerpts show resolved wiki-links"
+introduced_by = "spike 1: folia_core::content::markdown::excerpt_html"
+# Exactly the 19 garden notes with wiki-links, whose Jekyll excerpts show them unresolved; the
+# Markdown check fails if one of them no longer shows the deviation.
+sources = [
+  "_digital_garden/book-club/2014-books_list.md",
+  "_digital_garden/book-club/2016-books_list.md",
+  "_digital_garden/book-club/2025-books_list.md",
+  "_digital_garden/book-club/2026-books_list.md",
+  "_digital_garden/book-club/book-quotes/2025-08-22-art-of-loving.md",
+  "_digital_garden/book-club/book-quotes/index.md",
+  "_digital_garden/book-club/index.md",
+  "_digital_garden/coding/index.md",
+  "_digital_garden/coding/python/index.md",
+  "_digital_garden/coding/rust.md",
+  "_digital_garden/coding/versioning/index.md",
+  "_digital_garden/coding/versioning/jujutsu.md",
+  "_digital_garden/coding/web-dev.md",
+  "_digital_garden/index.md",
+  "_digital_garden/indieweb/index.md",
+  "_digital_garden/projects/deplatforming.md",
+  "_digital_garden/projects/index.md",
+  "_digital_garden/projects/oligo-melting/index.md",
+  "_digital_garden/travel-tips/index.md",
+]
+markdown_gates = ["G5 excerpts"]
+markdown_check = "resolved excerpt"
+change = """
+Jekyll takes excerpts before the wiki-link plugin runs, so the excerpts of these 19 garden notes
+show wiki-links unresolved: 18 keep `[[Title]]` as text, and kramdown reads a line holding
+`[[Title|text]]` as a table row (10 of them); in `indieweb/index.md`, `[[blogroll]]` becomes `[`,
+a reference link to the external `https://blogroll.org/`, and `]`. Page descriptions, listing
+cards and feed summaries show that. Folia renders an
+excerpt with the same wiki-link resolver as the body, so they show the link text, as the note's
+body does. Nothing else in an excerpt changes, and no other document's excerpt changes.
+"""
+rationale = """
+The raw markup is a defect of the plugin's ordering (plan v5, §2.6), not a design choice;
+reproducing it would mean emulating kramdown's tables for one bug. Descriptions, cards and feed
+summaries should read as the note does.
+"""
+verified_by = """
+just markdown d332352. G5 compares Folia's excerpt, rendered with resolved wiki-links,
+against Jekyll's excerpt. For a listed note the difference is explained only when Jekyll's
+excerpt has wiki-links (resolving them changes it), Jekyll's excerpt values differ from those of
+Jekyll's own body HTML, and Folia's equal them: the plugin had resolved the links in the body,
+and none of these notes has an excerpt separator, so its excerpt is its body. Every other garden note must match Jekyll's excerpt exactly, and a listed
+note that stops showing the deviation fails the check. Regression tests: the `excerpt_html` tests
+in crates/core/src/content/markdown/tests.rs.
+"""
+evidence = "parity/evidence/spike1/"

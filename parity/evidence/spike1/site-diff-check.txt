@@ -1,0 +1,37 @@
+How parity accepts a site checkout for a baseline built from uncommitted changes (site.diff).
+CLONE is a scratch clone of filopoe at 542c9a96; the filopoe checkout itself was not touched.
+
+$ routes: CLONE, clean, against 542c9a9-d002 (the recorded change missing)
+CLONE's uncommitted changes are not the ones the baseline was built with
+exit 2
+
+(applied 542c9a9-d002/site.diff to CLONE:  M _posts/2016/2016-09-04-chocolate-salame.md)
+
+$ routes: CLONE + site.diff against 542c9a9-d002
+Note: the baseline was built from uncommitted changes, which CLONE still has.
+exit 0
+
+$ markdown: CLONE + site.diff against 542c9a9-d002
+Note: the baseline was built from uncommitted changes, which CLONE still has.
+exit 0
+
+$ routes: CLONE + site.diff against 542c9a9 (a clean baseline)
+CLONE has uncommitted changes
+exit 2
+
+$ routes: CLONE + site.diff + an untracked file against 542c9a9-d002
+CLONE has untracked files, which the baseline's diff cannot vouch for
+exit 2
+
+$ routes: CLONE + site.diff + another change against 542c9a9-d002
+CLONE's uncommitted changes are not the ones the baseline was built with
+exit 2
+
+$ routes: CLONE + site.diff against a dirty baseline that records no site.diff
+SCRATCH/nodiff was built from a dirty tree without recording its changes; rebuild it
+exit 2
+
+$ markdown: CLONE + site.diff against d332352 (another commit)
+CLONE is at 542c9a96, but the baseline was built from d3323522
+exit 2
+
