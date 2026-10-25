@@ -1,0 +1,35 @@
+# Folia's configuration for the reference site (filopoe), used by the parity tools until the site
+# carries its own folia.toml (plan v3, §14 Q5 and Q8).
+
+time-zone = "Europe/Stockholm"
+
+include = [".htaccess"]
+
+# What the site's _config.yml excludes, plus Jekyll's default excludes, written as Folia's globs.
+# Jekyll also matches each pattern as a plain string prefix, so "LICENSE" there excluded the
+# LICENSE-*.txt files and "Gemfile" excluded Gemfile.lock; the patterns below say so explicitly.
+exclude = [
+  "CHANGELOG.md",
+  "CHECKLIST.md",
+  "Gemfile*",
+  "LICENSE*",
+  "README-*.md",
+  "README.md",
+  "gulpfile.js",
+  "jekyll-text-theme.gemspec",
+  "package-lock.json",
+  "package.json",
+  "docs",
+  "node_modules",
+  "screenshots",
+  "test",
+  "vendor",
+  "Justfile",
+  "assets/json/notes_graph.json",
+  "gemfiles",
+]
+
+[roots]
+blog = "_posts"
+micro = "_micro"
+garden = "_digital_garden"
